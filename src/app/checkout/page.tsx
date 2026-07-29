@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Check, CreditCard, Landmark, Lock, QrCode, Tag } from "lucide-react";
 import { useGemista } from "@/lib/store";
@@ -43,6 +43,19 @@ export default function CheckoutPage() {
   const shipping = subtotal >= 999 || subtotal === 0 ? 0 : 79;
   const discount = couponApplied ? Math.round(subtotal * 0.1) : 0;
   const total = subtotal + shipping - discount;
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((res) => res.json())
+      .then((data: { customer: { full_name: string | null; phone: string } | null }) => {
+        if (!data.customer) return;
+        if (data.customer.full_name) setFullName(data.customer.full_name);
+        setPhone(data.customer.phone);
+      })
+      .catch(() => {
+        // Not logged in or request failed — checkout continues as guest.
+      });
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

@@ -33,7 +33,7 @@ Full IA in `SITEMAP.md`. Key routes:
 - `/cart`, `/checkout` (guards empty-cart state with a "Shop Now" CTA instead of a broken form)
 - `/wishlist` (guards empty state similarly)
 - `/search` — query param driven, substring match against name/category (note: "ring" also matches "earrings" as a substring — expected, not a bug)
-- `/account` — static Sign In / Create Account UI, no backend wired up
+- `/account` — real customer accounts via phone OTP login (see "Customer accounts" below)
 - Brand/policy pages: `/about`, `/craftsmanship`, `/faq`, `/contact`, `/privacy-policy`, `/refund-policy`, `/shipping-policy`, `/terms`, `/size-guide`, `/jewellery-care`, `/track-order`, `/press`, `/affiliate`, `/rewards`
 - `/journal` + `/journal/[slug]` — editorial content
 - `/gift-guide` + `/gift-guide/quiz` — style quiz flow
@@ -60,8 +60,17 @@ Once `/api/razorpay/verify` confirms a payment's signature, it writes an order r
 
 `/internal/orders` (`src/app/internal/orders/page.tsx`) lists orders newest-first. It's gated by a single shared password (`ADMIN_PASSWORD` env var, see `src/lib/admin-auth.ts`): `POST /api/admin/login` checks it and sets an HMAC-signed, httpOnly session cookie (12h expiry) — this is intentionally lightweight (single-owner store, no multi-admin roles or real user accounts), not a full auth system. Requires `POSTGRES_URL` (auto-injected if you create a Postgres database from the Vercel dashboard's Storage tab) and `ADMIN_PASSWORD` as environment variables.
 
+## Customer accounts
+`/account` (`src/app/account/page.tsx`) is passwordless, phone-OTP-based — Amazon-India-style: enter a 10-digit mobile number, get a 6-digit SMS code, verify, done. First-time verification auto-creates a `customers` row (find-or-create by phone); there's no separate "sign up" step.
+
+- `POST /api/auth/send-otp` — validates the number, checks a 30s resend cooldown (`src/lib/otp.ts`), generates and hashes (SHA-256) a 6-digit code, stores it in `otp_codes` with a 5-minute expiry, sends it via `src/lib/sms.ts` (MSG91's Flow API).
+- `POST /api/auth/verify-otp` — checks expiry, a 5-attempt cap, and the hash; on match, finds-or-creates the customer, deletes the OTP row, and sets an HMAC-signed httpOnly session cookie (`src/lib/customer-auth.ts`, 30-day expiry, distinct from the admin session and its own `SESSION_SECRET`).
+- Logged-in customers see `AccountDashboard`: profile (name/email), and their own order history (`listOrdersForCustomer`, filtered by `orders.customer_id`).
+- **Checkout stays guest-first, unaffected** — no login is required to buy. If a customer happens to be logged in, checkout silently prefills name/phone (`GET /api/auth/me`) and the completed order links to their account (`verify` route reads the same cookie); logged-out checkout behaves exactly as before this feature existed.
+
+Requires `SESSION_SECRET` (any random string, e.g. `openssl rand -hex 32`), `MSG91_AUTH_KEY`, and `MSG91_TEMPLATE_ID` as environment variables. **MSG91 needs a DLT-registered sender ID and an approved OTP template first** — this is an India regulatory requirement for transactional SMS, not optional, and can take real setup time before OTPs will actually send. Without these env vars, `send-otp` returns a clear "not configured" error instead of crashing.
+
 ## Known gaps / non-goals (documented, not silently papered over)
-- `/account` has no real authentication — forms are inert by design, not a bug
 - `src/lib/data/misc.ts` → `press` array is explicitly placeholder ("Replace with real press coverage once secured") — never present as genuine
 - Brand voice and keyword targets are documented separately (`docs/brand-voice.md`, `docs/keywords.md`) and are a first draft, not validated against real SEO tooling/search-volume data
 

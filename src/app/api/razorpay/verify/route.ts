@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "crypto";
 import { insertOrder, OrderItem } from "@/lib/db";
+import { CUSTOMER_COOKIE_NAME, getCustomerIdFromToken } from "@/lib/customer-auth";
 
 interface OrderDetails {
   fullName: string;
@@ -56,7 +57,9 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const customerId = getCustomerIdFromToken(req.cookies.get(CUSTOMER_COOKIE_NAME)?.value);
     await insertOrder({
+      customerId,
       razorpayOrderId: razorpay_order_id,
       razorpayPaymentId: razorpay_payment_id,
       fullName: order.fullName,
