@@ -18,7 +18,7 @@ export function FeaturedCollections() {
           <SectionHeading
             eyebrow="Curated For You"
             title="Featured Collections"
-            description="Signature edits, styled around how you actually live — every day, date night, and everything between."
+            description="Signature edits, styled around how you actually live: every day, date night, and everything between."
           />
           <Link
             href="/collections"

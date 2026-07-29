@@ -20,7 +20,7 @@ export function GiftGuideBanner() {
               </h2>
               <p className="mt-4 max-w-md text-balance text-ink-600">
                 Take our 60-second Style Quiz and we&apos;ll match them with a piece they&apos;ll
-                actually wear — or browse our curated gift guide by occasion and budget.
+                actually wear, or browse our curated gift guide by occasion and budget.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild>

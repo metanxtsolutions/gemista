@@ -11,7 +11,7 @@ import { Sparkles } from "lucide-react";
 export const metadata: Metadata = {
   title: "Gift Guide",
   description:
-    "Find the perfect jewellery gift by occasion or budget — curated picks for birthdays, anniversaries, Valentine's Day and more.",
+    "Find the perfect jewellery gift by occasion or budget. Curated picks for birthdays, anniversaries, Valentine's Day and more.",
   alternates: { canonical: "/gift-guide" },
 };
 

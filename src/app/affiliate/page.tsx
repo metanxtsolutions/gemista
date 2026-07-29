@@ -6,7 +6,7 @@ import { Percent, Users, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Affiliate & Influencer Program",
-  description: "Partner with Gemista — earn commission sharing jewellery you love with your audience.",
+  description: "Partner with Gemista and earn commission sharing jewellery you love with your audience.",
   alternates: { canonical: "/affiliate" },
 };
 

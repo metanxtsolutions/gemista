@@ -22,9 +22,9 @@ export default function SizeGuidePage() {
         </PolicySection>
         <PolicySection title="Necklace Length">
           <ul className="list-disc space-y-1 pl-4">
-            <li>14–16 in. — sits at the collarbone (choker length)</li>
-            <li>16–18 in. — sits just below the collarbone (princess length)</li>
-            <li>18–20 in. — sits at the chest (matinee length)</li>
+            <li>14–16 in.: sits at the collarbone (choker length)</li>
+            <li>16–18 in.: sits just below the collarbone (princess length)</li>
+            <li>18–20 in.: sits at the chest (matinee length)</li>
           </ul>
           <p>Most Gemista necklaces include a 2 in. extender for flexible sizing.</p>
         </PolicySection>

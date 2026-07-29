@@ -19,7 +19,7 @@ export const products: Product[] = [
     reviewCount: 214,
     isBestSeller: true,
     description:
-      "A polished mid-size hoop that moves with you — light enough for all-day wear, bright enough to be the only earring you reach for.",
+      "A polished mid-size hoop that moves with you. Light enough for all-day wear, bright enough to be the only earring you reach for.",
     highlights: [
       "Tarnish-resistant, skin-friendly plating",
       "Hypoallergenic titanium steel base",
@@ -63,7 +63,7 @@ export const products: Product[] = [
     isNew: true,
     lowStock: 6,
     description:
-      "Light-catching Austrian crystal in a fluid drop silhouette — designed to sway and sparkle from golden hour to last call.",
+      "Light-catching Austrian crystal in a fluid drop silhouette, designed to sway and sparkle from golden hour to last call.",
     highlights: ["Genuine Austrian crystal", "Rhodium plating resists tarnish", "Lightweight 4.2g pair"],
   },
   {
@@ -80,7 +80,7 @@ export const products: Product[] = [
     reviewCount: 441,
     isBestSeller: true,
     description:
-      "A single freshwater pearl set on a sterling silver post — the quiet luxury stud that goes with absolutely everything.",
+      "A single freshwater pearl set on a sterling silver post. The quiet luxury stud that goes with absolutely everything.",
     highlights: ["Genuine freshwater pearl", "925 sterling silver post", "Gentle on sensitive ears"],
   },
   {
@@ -100,7 +100,7 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 189,
     description:
-      "A close-fitting huggie hoop cut for comfort — our most reordered everyday earring, in three finishes.",
+      "A close-fitting huggie hoop cut for comfort. Our most reordered everyday earring, now in three finishes.",
     highlights: ["Hypoallergenic titanium core", "Snug, secure fit", "Water & sweat resistant plating"],
   },
   {
@@ -120,7 +120,7 @@ export const products: Product[] = [
     reviewCount: 267,
     isBestSeller: true,
     description:
-      "Two fine chains, one clasp — a coin pendant layered over a bar chain for effortless depth without the tangle.",
+      "Two fine chains, one clasp: a coin pendant layered over a bar chain for effortless depth without the tangle.",
     highlights: ["Pre-layered, single clasp design", "Adjustable 16–18 in.", "Tarnish resistant"],
   },
   {
@@ -138,7 +138,7 @@ export const products: Product[] = [
     reviewCount: 312,
     isNew: true,
     description:
-      "Our most-gifted pendant — a delicate crystal-edged butterfly suspended on a fine cable chain.",
+      "Our most-gifted pendant: a delicate crystal-edged butterfly suspended on a fine cable chain.",
     highlights: ["Comes in signature gift packaging", "18 in. chain with 2 in. extender", "Nickel & lead free"],
   },
   {
@@ -154,7 +154,7 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 198,
     description:
-      "A soft, sculpted heart pendant with a single pavé line — understated enough for daily wear, meaningful enough to gift.",
+      "A soft, sculpted heart pendant with a single pavé line. Understated enough for daily wear, meaningful enough to gift.",
     highlights: ["Solid sculpted pendant", "16+2 in. adjustable chain", "Comes gift-wrapped"],
   },
   {
@@ -171,7 +171,7 @@ export const products: Product[] = [
     reviewCount: 87,
     lowStock: 4,
     description:
-      "A close-set crystal choker built for occasions that call for more sparkle — the room-stealing finish to any look.",
+      "A close-set crystal choker built for occasions that call for more sparkle, the kind of finish that steals the room.",
     highlights: ["Fully adjustable clasp", "Genuine Austrian crystal", "Statement-weight, all-day comfortable"],
   },
   {
@@ -189,7 +189,7 @@ export const products: Product[] = [
     reviewCount: 152,
     isBestSeller: true,
     description:
-      "A coordinated pendant necklace and stud pair, designed and boxed together — the easiest gift decision you'll make all year.",
+      "A coordinated pendant necklace and stud pair, designed and boxed together. The easiest gift decision you'll make all year.",
     highlights: ["Matching necklace + earring duo", "Signature Gemista gift box included", "One-size adjustable chain"],
   },
   {
@@ -206,7 +206,7 @@ export const products: Product[] = [
     reviewCount: 176,
     isNew: true,
     description:
-      "A continuous line of hand-set crystal, finished in tarnish-resistant rhodium — our take on the classic tennis bracelet.",
+      "A continuous line of hand-set crystal, finished in tarnish-resistant rhodium. Our take on the classic tennis bracelet.",
     highlights: ["Secure box clasp with safety catch", "Adjustable extender", "Every stone hand-set"],
   },
   {
@@ -222,7 +222,7 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 143,
     description:
-      "A substantial curb chain scaled for the wrist — pairs effortlessly with a watch or worn stacked, alone.",
+      "A substantial curb chain scaled for the wrist, pairing effortlessly with a watch or worn stacked, alone.",
     highlights: ["7.5 in. with 1.5 in. extender", "Lobster clasp closure", "Everyday-durable plating"],
   },
   {
@@ -238,7 +238,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 121,
     description:
-      "Delicate floral and pearl charms on a fine link chain — a little movement and shine with every gesture.",
+      "Delicate floral and pearl charms on a fine link chain, moving and catching light with every gesture.",
     highlights: ["Genuine freshwater pearl charm", "Adjustable 6–7.5 in.", "Nickel-free"],
   },
   {
@@ -255,7 +255,7 @@ export const products: Product[] = [
     reviewCount: 298,
     isBestSeller: true,
     description:
-      "A slim halo band designed to stack — worn alone it's a quiet sparkle, worn with others it builds your own signature set.",
+      "A slim halo band designed to stack. Worn alone it's a quiet sparkle; worn with others it builds your own signature set.",
     highlights: ["Sold as a single ring", "Sizes 5–9 available", "Comfort-fit interior"],
   },
   {
@@ -271,7 +271,7 @@ export const products: Product[] = [
     rating: 4.6,
     reviewCount: 165,
     description:
-      "One size, endless styling — an open-back adjustable band that fits nearly every finger, beautifully.",
+      "One size, endless styling: an open-back adjustable band that fits nearly every finger, beautifully.",
     highlights: ["Fully adjustable, one size fits most", "Nickel-free plating", "Perfect first-jewellery gift"],
   },
   {
@@ -288,7 +288,7 @@ export const products: Product[] = [
     reviewCount: 74,
     isNew: true,
     description:
-      "A sculptural cluster of crystal built to be noticed — for the nights that call for a little more drama.",
+      "A sculptural cluster of crystal built to be noticed, for the nights that call for a little more drama.",
     highlights: ["Bold sculptural silhouette", "Sizes 6–9", "Rhodium plating resists tarnish"],
   },
   {
@@ -305,7 +305,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 203,
     description:
-      "Three slim bands — twist, pavé, and plain — sold together to build a stack in one order.",
+      "Three slim bands (twist, pavé, and plain) sold together to build a stack in one order.",
     highlights: ["Set of 3 rings", "Mixed-texture stacking design", "925 silver base"],
   },
   {
@@ -321,7 +321,7 @@ export const products: Product[] = [
     rating: 4.7,
     reviewCount: 96,
     description:
-      "A hoop and a drop in one — pavé crystal top, polished gold hoop below, for evenings that need one earring to do everything.",
+      "A hoop and a drop in one: pavé crystal top, polished gold hoop below, for evenings that need one earring to do everything.",
     highlights: ["Two-in-one silhouette", "Secure hinged post", "18K gold plated brass"],
   },
   {
@@ -338,7 +338,7 @@ export const products: Product[] = [
     reviewCount: 61,
     lowStock: 3,
     description:
-      "A graduated cascade of crystal at the collarbone — statement enough to be the only jewellery you need.",
+      "A graduated cascade of crystal at the collarbone. Statement enough to be the only jewellery you need.",
     highlights: ["Graduated crystal design", "Adjustable 14–16 in.", "Secure lobster clasp"],
   },
   {
@@ -355,7 +355,7 @@ export const products: Product[] = [
     reviewCount: 512,
     isBestSeller: true,
     description:
-      "The smallest hoop in our line — a 10mm everyday essential for anyone who never takes their earrings off.",
+      "The smallest hoop in our line: a 10mm everyday essential for anyone who never takes their earrings off.",
     highlights: ["10mm diameter", "Fully hypoallergenic titanium", "Sold as a pair"],
   },
   {
@@ -373,7 +373,7 @@ export const products: Product[] = [
     reviewCount: 84,
     isNew: true,
     description:
-      "Necklace, earrings and a stacking ring — our fullest gift set, presented in keepsake Gemista packaging.",
+      "Necklace, earrings and a stacking ring: our fullest gift set, presented in keepsake Gemista packaging.",
     highlights: ["3-piece coordinated set", "Keepsake box with ribbon", "Complimentary gift note"],
   },
 ];

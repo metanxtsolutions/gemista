@@ -32,7 +32,7 @@ export const collections: Collection[] = [
   {
     slug: "valentine",
     name: "Valentine's Edit",
-    description: "Made for love — the season's most-gifted pieces.",
+    description: "Made for love: the season's most-gifted pieces.",
     art: { shape: "pendant", tone: "rose" },
     photo: "necklaceModel",
   },

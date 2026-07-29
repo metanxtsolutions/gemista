@@ -20,7 +20,7 @@ export function InstagramFeed() {
         <SectionHeading
           eyebrow="@wearegemista"
           title="Styled by you"
-          description="Tag @wearegemista to be featured — real people, real everyday styling."
+          description="Tag @wearegemista to be featured: real people, real everyday styling."
           align="center"
         />
 

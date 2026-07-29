@@ -1,4 +1,4 @@
-// Curated free-license editorial photography (Unsplash License — free for commercial
+// Curated free-license editorial photography (Unsplash License, free for commercial
 // use, no attribution required). Sourced for the Gemista concept site to stand in for
 // real product photography. Credits kept here for reference / future attribution.
 

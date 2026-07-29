@@ -39,7 +39,7 @@ export function ProductAccordion({ product }: { product: Product }) {
       <Item value="shipping" title="Shipping & Delivery">
         Free shipping across India on orders above ₹999. Standard delivery in 3–5 business
         days; express delivery available at checkout. Cash on delivery available on orders
-        under ₹5,000. We also ship worldwide — international delivery in 7–12 business days.
+        under ₹5,000. We also ship worldwide, with international delivery in 7–12 business days.
       </Item>
       <Item value="returns" title="Returns & Exchanges">
         Not the one? We offer 15-day free returns and exchanges on unworn items in original
@@ -47,7 +47,7 @@ export function ProductAccordion({ product }: { product: Product }) {
       </Item>
       <Item value="gifting" title="Gift Wrapping">
         Every order can be wrapped in signature Gemista packaging with a handwritten note, at
-        no extra cost — just select it before checkout.
+        no extra cost, just select it before checkout.
       </Item>
     </Accordion.Root>
   );

@@ -64,7 +64,7 @@ export function ProductInfo({ product }: { product: Product }) {
 
       {product.lowStock && (
         <p className="mt-3 text-sm font-medium text-error">
-          Only {product.lowStock} left — order soon
+          Only {product.lowStock} left, order soon
         </p>
       )}
 

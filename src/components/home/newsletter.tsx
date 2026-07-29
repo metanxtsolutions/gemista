@@ -63,7 +63,7 @@ export function Newsletter({ compact = false }: { compact?: boolean }) {
 
           {submitted ? (
             <p className="mt-8 flex items-center justify-center gap-2 font-medium text-gold-400">
-              <Check size={18} /> Welcome to Gemista — check your inbox.
+              <Check size={18} /> Welcome to Gemista. Check your inbox.
             </p>
           ) : (
             <form

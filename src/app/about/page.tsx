@@ -9,7 +9,7 @@ import { Newsletter } from "@/components/home/newsletter";
 export const metadata: Metadata = {
   title: "Our Story",
   description:
-    "Gemista makes beautiful, affordable jewellery for everyday life — learn about our mission, materials and why we believe jewellery shouldn't wait for a special occasion.",
+    "Gemista makes beautiful, affordable jewellery for everyday life. Learn about our mission, materials and why we believe jewellery shouldn't wait for a special occasion.",
   alternates: { canonical: "/about" },
 };
 
@@ -37,7 +37,7 @@ export default function AboutPage() {
               </p>
               <p>
                 Gemista brings together modern design, premium craftsmanship and accessible
-                pricing to make elegant jewellery part of everyday life — for the woman
+                pricing to make elegant jewellery part of everyday life, for the woman
                 dressing for a Tuesday meeting just as much as the one dressing for a wedding.
               </p>
               <p>
@@ -67,7 +67,7 @@ export default function AboutPage() {
           <Reveal delay={0.1}>
             <p className="eyebrow text-gold-600">Our Vision</p>
             <p className="mt-2 text-ink-700">
-              To become India&apos;s most-loved modern jewellery brand — and, in time, a
+              To become India&apos;s most-loved modern jewellery brand, and in time, a
               globally recognised jewellery lifestyle label.
             </p>
           </Reveal>
@@ -75,7 +75,7 @@ export default function AboutPage() {
             <p className="eyebrow text-gold-600">Our Promise</p>
             <p className="mt-2 text-ink-700">
               Every piece is thoughtfully selected to help you look beautiful, feel confident,
-              and celebrate yourself — every single day.
+              and celebrate yourself, every single day.
             </p>
           </Reveal>
         </div>

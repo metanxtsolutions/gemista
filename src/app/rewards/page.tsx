@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 };
 
 const ways = [
-  { icon: Repeat, title: "Earn on every order", body: "Get 1 point for every ₹100 spent — redeemable for discounts on future orders." },
-  { icon: UserPlus, title: "Refer a friend", body: "Give ₹300, get ₹300 — you both save when they place their first order." },
+  { icon: Repeat, title: "Earn on every order", body: "Get 1 point for every ₹100 spent, redeemable for discounts on future orders." },
+  { icon: UserPlus, title: "Refer a friend", body: "Give ₹300, get ₹300. You both save when they place their first order." },
   { icon: Cake, title: "Birthday reward", body: "A surprise discount code, delivered to your inbox on your birthday." },
   { icon: Gift, title: "Milestone rewards", body: "Unlock free gifts and early access as you reach new spending tiers." },
 ];

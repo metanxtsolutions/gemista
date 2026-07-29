@@ -1,4 +1,4 @@
-# Gemista — Information Architecture & Sitemap
+# Gemista: Information Architecture & Sitemap
 
 This document maps the full site structure as implemented in this codebase, plus the design system reference. It is the companion deliverable to the running Next.js app.
 
@@ -44,12 +44,12 @@ This document maps the full site structure as implemented in this codebase, plus
 ```
 
 ### Global, persistent UI (present on every route)
-- **Announcement bar** — rotating promo messages
-- **Header** — logo, primary nav with mega menu (Earrings / Necklaces / Bracelets / Rings / Sets / Gift Guide / Sale), search trigger, account, wishlist (with count), cart (with count)
-- **Mobile nav** — slide-over with accordion categories
-- **Cart drawer** — slide-over, free-shipping progress bar, qty controls
-- **Search overlay** — full-screen, trending searches
-- **Footer** — newsletter capture, 4 link columns, social, payment badges
+- **Announcement bar**: rotating promo messages
+- **Header**: logo, primary nav with mega menu (Earrings / Necklaces / Bracelets / Rings / Sets / Gift Guide / Sale), search trigger, account, wishlist (with count), cart (with count)
+- **Mobile nav**: slide-over with accordion categories
+- **Cart drawer**: slide-over, free-shipping progress bar, qty controls
+- **Search overlay**: full-screen, trending searches
+- **Footer**: newsletter capture, 4 link columns, social, payment badges
 
 ## 2. Homepage section order
 
@@ -68,25 +68,25 @@ This document maps the full site structure as implemented in this codebase, plus
 
 ## 3. Product page anatomy
 
-Breadcrumbs → Gallery (thumbnails + zoom-on-hover) → Info panel (badges, rating, price, variant swatches, qty, Add to Bag, wishlist, gift-wrap checkbox, trust badges) → Accordion (Details & Materials / Care / Shipping / Returns / Gift Wrapping) → Reviews (rating breakdown + list, `#reviews` anchor) → Complete The Look → You May Also Like → Recently Viewed → sticky mobile Add-to-Bag bar.
+Breadcrumbs, then Gallery (thumbnails + zoom-on-hover), Info panel (badges, rating, price, variant swatches, qty, Add to Bag, wishlist, gift-wrap checkbox, trust badges), Accordion (Details & Materials / Care / Shipping / Returns / Gift Wrapping), Reviews (rating breakdown + list, `#reviews` anchor), Complete The Look, You May Also Like, Recently Viewed, and a sticky mobile Add-to-Bag bar.
 
 JSON-LD: `Product` (with `AggregateRating`/`Offer`) + `FAQPage` per product page. `BreadcrumbList` on every page using `<Breadcrumbs>`. `Organization` schema in the root layout.
 
 ## 4. Data layer (mock, swappable)
 
-All content lives in `src/lib/data/*.ts` — typed, framework-agnostic, and structured so it can be swapped for a real CMS/headless-commerce backend (Shopify, Medusa, Sanity, etc.) without touching UI components:
+All content lives in `src/lib/data/*.ts`, typed and framework-agnostic, structured so it can be swapped for a real CMS/headless-commerce backend (Shopify, Medusa, Sanity, etc.) without touching UI components:
 
-- `products.ts` — 22 seed SKUs across all 5 categories
-- `categories.ts`, `collections.ts` — nav + landing taxonomy
+- `products.ts`: 22 seed SKUs across all 5 categories
+- `categories.ts`, `collections.ts`: nav + landing taxonomy
 - `reviews.ts`, `misc.ts` (press, occasions, USPs), `journal.ts`
-- `photos.ts` — curated free-license (Unsplash License) editorial photography used for marketing surfaces (hero, category tiles, collections, occasions, gift guide, Instagram grid, journal). Credits are recorded in-file.
-- Individual **product cards and the product gallery** use an original abstract art-direction system (`components/media/product-art.tsx` — gradient + line-art per shape/tone) rather than photography, since 22 distinct SKUs don't have real studio photography yet. Swap `ProductArt` for real product photos per SKU before launch.
+- `photos.ts`: curated free-license (Unsplash License) editorial photography used for marketing surfaces (hero, category tiles, collections, occasions, gift guide, Instagram grid, journal). Credits are recorded in-file.
+- Individual **product cards and the product gallery** use an original abstract art-direction system (`components/media/product-art.tsx`, gradient + line-art per shape/tone) rather than photography, since 22 distinct SKUs don't have real studio photography yet. Swap `ProductArt` for real product photos per SKU before launch.
 
-State: `src/lib/store.ts` (Zustand + persist) — cart, wishlist, recently-viewed, drawer/search open state. Hydration-safe via a `hasHydrated` flag to avoid SSR/client mismatches.
+State: `src/lib/store.ts` (Zustand + persist) handles cart, wishlist, recently-viewed, and drawer/search open state. Hydration-safe via a `hasHydrated` flag to avoid SSR/client mismatches.
 
 ## 5. Design system reference
 
-**Typography** — `Fraunces` (display/serif, headlines) + `Inter` (sans, UI/body), loaded via `next/font`.
+**Typography**: `Fraunces` (display/serif, headlines) + `Inter` (sans, UI/body), loaded via `next/font`.
 
 **Color tokens** (`src/app/globals.css`, Tailwind v4 `@theme`):
 | Token | Use |
@@ -98,7 +98,7 @@ State: `src/lib/store.ts` (Zustand + persist) — cart, wishlist, recently-viewe
 
 **Radii**: `xs..xl` (4px–32px) + `full`. **Shadows**: `soft` / `card` / `lifted`. **Easing**: `--ease-luxury` (`cubic-bezier(0.22,1,0.36,1)`) used across Framer Motion transitions.
 
-**Motion system** (`components/motion/reveal.tsx`) — `Reveal` / `RevealGroup` / `RevealItem`: scroll-triggered fade-up-blur, `viewport={{ once: true }}`, shared across every section for a consistent "soft, luxury, never overused" feel.
+**Motion system** (`components/motion/reveal.tsx`): `Reveal` / `RevealGroup` / `RevealItem` provide scroll-triggered fade-up-blur, `viewport={{ once: true }}`, shared across every section for a consistent "soft, luxury, never overused" feel.
 
 ## 6. Not implemented (explicitly out of scope for this static/demo build)
 

@@ -12,7 +12,7 @@ export function ShopByCategory() {
         <SectionHeading
           eyebrow="Explore"
           title="Shop by Category"
-          description="From everyday studs to statement rings — find your next favourite piece."
+          description="From everyday studs to statement rings, find your next favourite piece."
           align="center"
         />
 

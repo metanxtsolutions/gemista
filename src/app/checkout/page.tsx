@@ -120,7 +120,7 @@ export default function CheckoutPage() {
                 onChange={(e) => setGiftNote(e.target.checked)}
                 className="h-4 w-4 accent-ink-900"
               />
-              This order is a gift — add gift wrapping & a note
+              This order is a gift, add gift wrapping & a note
             </label>
             {giftNote && (
               <textarea
@@ -164,7 +164,7 @@ export default function CheckoutPage() {
               Apply
             </Button>
           </div>
-          {couponApplied && <p className="mt-2 text-xs text-success">Code applied — 10% off</p>}
+          {couponApplied && <p className="mt-2 text-xs text-success">Code applied: 10% off</p>}
 
           <div className="mt-5 space-y-2 border-t border-beige pt-4 text-sm">
             <div className="flex justify-between text-ink-600">

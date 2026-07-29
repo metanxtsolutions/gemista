@@ -87,7 +87,7 @@ export default async function ProductPage({
         name: "Is this piece skin-friendly?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — every Gemista piece uses hypoallergenic, nickel-free materials safe for sensitive skin.",
+          text: "Yes, every Gemista piece uses hypoallergenic, nickel-free materials safe for sensitive skin.",
         },
       },
       {
@@ -139,7 +139,7 @@ export default async function ProductPage({
       <StickyAddToCart product={product} />
 
       <p className="sr-only">
-        {product.name} — {formatPrice(product.price)}. {product.description}
+        {product.name}, {formatPrice(product.price)}. {product.description}
       </p>
     </div>
   );

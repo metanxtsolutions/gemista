@@ -7,14 +7,14 @@ import { photos } from "@/lib/data/photos";
 export const metadata: Metadata = {
   title: "Materials & Craftsmanship",
   description:
-    "Learn what Gemista jewellery is made from — titanium steel, gold and silver plating, cubic zirconia and freshwater pearls — and how each piece is finished.",
+    "Learn what Gemista jewellery is made from, including titanium steel, gold and silver plating, cubic zirconia and freshwater pearls, and how each piece is finished.",
   alternates: { canonical: "/craftsmanship" },
 };
 
 const materials = [
   {
     name: "Titanium Steel",
-    detail: "Our everyday-wear base metal — hypoallergenic, waterproof and virtually scratch-resistant.",
+    detail: "Our everyday-wear base metal: hypoallergenic, waterproof and virtually scratch-resistant.",
   },
   {
     name: "18K Gold & Rhodium Plating",
@@ -52,7 +52,7 @@ export default function CraftsmanshipPage() {
           <Reveal delay={0.1}>
             <h2 className="font-display text-3xl text-ink-900">Built for real, everyday life</h2>
             <p className="mt-4 text-ink-600">
-              We design every piece to survive your actual routine — the gym, the shower, a
+              We design every piece to survive your actual routine: the gym, the shower, a
               humid commute. That means choosing hypoallergenic, nickel-free bases and
               tarnish-resistant plating over cheaper alternatives that fade within weeks.
             </p>

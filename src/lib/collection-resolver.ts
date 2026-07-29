@@ -17,7 +17,7 @@ export function resolveCollection(slug: string): ResolvedCollection | null {
     return {
       slug,
       title: "All Jewellery",
-      description: "Every piece, in one place — earrings, necklaces, bracelets, rings and sets.",
+      description: "Every piece, in one place: earrings, necklaces, bracelets, rings and sets.",
       photo: "jewelryBox",
       products,
     };
@@ -27,7 +27,7 @@ export function resolveCollection(slug: string): ResolvedCollection | null {
     return {
       slug,
       title: "New Arrivals",
-      description: "The latest pieces to join the edit — updated every few weeks.",
+      description: "The latest pieces to join the edit, updated every few weeks.",
       photo: "ringsNecklace",
       products: products.filter((p) => p.isNew),
     };

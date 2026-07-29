@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
       <PageHeader title="Privacy Policy" crumbs={[{ label: "Home", href: "/" }, { label: "Privacy Policy" }]} />
       <div className="container-gem max-w-2xl py-10">
         <PolicySection title="Information We Collect">
-          <p>We collect information you provide directly — name, email, shipping address, phone number and payment details — as well as browsing data such as pages visited and items viewed, to improve your shopping experience.</p>
+          <p>We collect information you provide directly, such as name, email, shipping address, phone number and payment details, as well as browsing data such as pages visited and items viewed, to improve your shopping experience.</p>
         </PolicySection>
         <PolicySection title="How We Use Your Information">
           <p>We use your data to process orders, provide customer support, personalise recommendations, send marketing communications (with your consent), and improve our website and services.</p>

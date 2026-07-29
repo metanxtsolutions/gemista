@@ -51,8 +51,8 @@ export function Hero() {
           <p
             className="mt-6 max-w-md text-balance text-base leading-relaxed text-ink-200 opacity-0 [animation:fade-up_0.7s_ease_0.36s_forwards] sm:text-lg"
           >
-            Elegant jewellery designed for every moment, every outfit and every version of
-            you — crafted to be worn daily, priced to be worn often.
+            Elegant jewellery for every moment, every outfit, every version of you.
+            Made to be worn daily, priced so you actually will.
           </p>
 
           <div

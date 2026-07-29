@@ -10,7 +10,7 @@ import { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal";
 export const metadata: Metadata = {
   title: "All Collections",
   description:
-    "Browse every Gemista collection — Everyday Elegance, Butterfly, Crystal, Date Night, Valentine's, Office, Party Glam and Wedding Guest.",
+    "Browse every Gemista collection: Everyday Elegance, Butterfly, Crystal, Date Night, Valentine's, Office, Party Glam and Wedding Guest.",
   alternates: { canonical: "/collections" },
 };
 

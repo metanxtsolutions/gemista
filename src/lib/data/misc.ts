@@ -1,4 +1,4 @@
-// Placeholder editorial mentions — replace with real press coverage once secured.
+// Placeholder editorial mentions. Replace with real press coverage once secured.
 export const press = [
   { name: "The Style Edit", quote: "The affordable-luxury label every closet needs." },
   { name: "Modern Muse Journal", quote: "Jewellery that photographs as well as it wears." },
@@ -22,7 +22,7 @@ export const occasions = [
 export const whyGemista = [
   {
     title: "Designed to be worn daily",
-    body: "Lightweight, tarnish-resistant finishes made for real life — not just special occasions.",
+    body: "Lightweight, tarnish-resistant finishes made for real life, not just special occasions.",
   },
   {
     title: "Skin-friendly, always",
@@ -34,6 +34,6 @@ export const whyGemista = [
   },
   {
     title: "Thoughtfully packaged",
-    body: "Every order arrives gift-ready — because it might just become one.",
+    body: "Every order arrives gift-ready, because it might just become one.",
   },
 ];

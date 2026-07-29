@@ -21,9 +21,9 @@ export const faqs = [
   {
     category: "Product & Materials",
     items: [
-      { q: "Is Gemista jewellery hypoallergenic?", a: "Yes — every piece uses nickel-free, hypoallergenic materials such as titanium steel and tested plating, safe for sensitive skin." },
+      { q: "Is Gemista jewellery hypoallergenic?", a: "Yes, every piece uses nickel-free, hypoallergenic materials such as titanium steel and tested plating, safe for sensitive skin." },
       { q: "Will the plating fade?", a: "Our plating is tarnish-resistant and built for daily wear, but like all plated jewellery it will wear over time with heavy use. Following our care guide extends its life significantly." },
-      { q: "Do you sell real gold or diamonds?", a: "Gemista specialises in fashion jewellery — 18K gold plating, sterling silver, cubic zirconia and genuine freshwater pearls, not fine gold or diamonds." },
+      { q: "Do you sell real gold or diamonds?", a: "Gemista specialises in fashion jewellery: 18K gold plating, sterling silver, cubic zirconia and genuine freshwater pearls, not fine gold or diamonds." },
     ],
   },
   {

@@ -25,7 +25,7 @@ const siteUrl = "https://www.gemista.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gemista — Jewellery That Celebrates You",
+    default: "Gemista: Jewellery That Celebrates You",
     template: "%s | Gemista",
   },
   description:
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "jewellery gift sets",
   ],
   openGraph: {
-    title: "Gemista — Jewellery That Celebrates You",
+    title: "Gemista: Jewellery That Celebrates You",
     description:
       "Affordable luxury jewellery designed for every moment, every outfit and every version of you.",
     url: siteUrl,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gemista — Jewellery That Celebrates You",
+    title: "Gemista: Jewellery That Celebrates You",
     description: "Affordable luxury jewellery designed for everyday wear.",
   },
   alternates: {

@@ -15,7 +15,7 @@ export function NewArrivals() {
           <SectionHeading
             eyebrow="Just Landed"
             title="New Arrivals"
-            description="The latest pieces to join the edit — updated every few weeks."
+            description="The latest pieces to join the edit, updated every few weeks."
           />
           <Link
             href="/collections/new-arrivals"

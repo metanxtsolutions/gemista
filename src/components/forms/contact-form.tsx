@@ -13,7 +13,7 @@ export function ContactForm() {
         <Check size={28} className="text-success" />
         <p className="mt-4 font-display text-xl text-ink-900">Message sent</p>
         <p className="mt-2 text-sm text-ink-500">
-          Thank you for reaching out — our team will get back to you within 24 hours.
+          Thank you for reaching out. Our team will get back to you within 24 hours.
         </p>
       </div>
     );

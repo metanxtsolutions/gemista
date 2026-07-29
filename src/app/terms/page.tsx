@@ -23,7 +23,7 @@ export default function TermsPage() {
           <p>Prices are listed in INR (or your local currency where applicable) and are subject to change without notice. We reserve the right to limit quantities and refuse orders.</p>
         </PolicySection>
         <PolicySection title="Intellectual Property">
-          <p>All content on this site — including designs, photography, logos and copy — is the property of Gemista and may not be reproduced without written permission.</p>
+          <p>All content on this site, including designs, photography, logos and copy, is the property of Gemista and may not be reproduced without written permission.</p>
         </PolicySection>
         <PolicySection title="Limitation of Liability">
           <p>Gemista is not liable for indirect or incidental damages arising from the use of our products or website, to the extent permitted by law.</p>
