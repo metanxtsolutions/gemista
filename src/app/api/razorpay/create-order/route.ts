@@ -66,7 +66,17 @@ export async function POST(req: NextRequest) {
       currency: order.currency,
       keyId,
     });
-  } catch {
-    return NextResponse.json({ error: "Could not start payment. Please try again." }, { status: 502 });
+  } catch (err) {
+    const detail =
+      typeof err === "object" && err !== null && "error" in err
+        ? (err as { error?: { description?: string; code?: string } }).error
+        : undefined;
+    return NextResponse.json(
+      {
+        error: "Could not start payment. Please try again.",
+        debug: detail?.description ?? detail?.code ?? String(err),
+      },
+      { status: 502 },
+    );
   }
 }
