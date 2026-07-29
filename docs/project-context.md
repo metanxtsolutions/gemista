@@ -3,7 +3,7 @@
 ## Stack
 Next.js 16.2 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 (`@theme` CSS-based config) · Framer Motion · Zustand (with `persist` middleware, `localStorage` key `gemista-store`) · Radix UI primitives (accordion, dialog, slot, tabs) · `@vercel/analytics`. Deployed on Vercel at [gemista.store](https://gemista.store) (redirects to `www.gemista.store`). Repo: `github.com/metanxtsolutions/gemista`, branch `main`.
 
-No backend/database. All content is static/build-time data. The `/account` page is a UI shell only — Sign In / Create Account forms exist but are not wired to any auth system.
+Product/category content is static/build-time data. Two exceptions run server-side: Razorpay payment routes (`src/app/api/razorpay/*`, now on **live** keys — real money) and order storage in Postgres (`src/lib/db.ts`, `src/app/internal/orders`) behind a single-password admin gate. See "Payments" and "Order storage & admin" in `docs/project-spec.md`. The `/account` page is still a UI shell only — Sign In / Create Account forms exist but are not wired to any auth system.
 
 ## Single Source of Truth
 - Product data lives in: [`src/lib/data/products.ts`](../src/lib/data/products.ts) — 17 products, sourced from Nihaojewelry (wholesale/dropship supplier). Photos are the supplier's own product photography for the exact physical items Gemista sources and resells, stored in [`public/products/`](../public/products/).

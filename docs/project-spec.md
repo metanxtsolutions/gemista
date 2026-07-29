@@ -51,7 +51,14 @@ Checkout (`src/app/checkout/page.tsx`) collects full name, phone, and shipping a
 2. The client loads Razorpay's `checkout.js` and opens the widget, restricted to UPI or card entry based on the selected method, prefilled with name/phone.
 3. On success, `POST /api/razorpay/verify` checks the HMAC-SHA256 payment signature server-side before the cart is cleared and the order is marked placed.
 
-Requires `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` as environment variables (see `.env.local.example`) — get them from the Razorpay dashboard. Without them, `create-order` returns a clear "not configured" error instead of crashing, and the checkout UI surfaces it inline. There's no order-history persistence (no database), so a successful payment shows a confirmation screen but isn't stored anywhere.
+Requires `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` as environment variables (see `.env.local.example`) — get them from the Razorpay dashboard. Without them, `create-order` returns a clear "not configured" error instead of crashing, and the checkout UI surfaces it inline.
+
+**Currently live on real Razorpay keys** — this is processing actual customer payments, not test transactions.
+
+## Order storage & admin
+Once `/api/razorpay/verify` confirms a payment's signature, it writes an order row (customer name, phone, address, cart items, amounts, Razorpay IDs, gift note) to Postgres via `src/lib/db.ts` (`@vercel/postgres`, table auto-created on first use). If the DB write fails, the customer still sees success — a captured payment must never be reported as failed over a storage error — but the failure is logged server-side for manual reconciliation.
+
+`/internal/orders` (`src/app/internal/orders/page.tsx`) lists orders newest-first. It's gated by a single shared password (`ADMIN_PASSWORD` env var, see `src/lib/admin-auth.ts`): `POST /api/admin/login` checks it and sets an HMAC-signed, httpOnly session cookie (12h expiry) — this is intentionally lightweight (single-owner store, no multi-admin roles or real user accounts), not a full auth system. Requires `POSTGRES_URL` (auto-injected if you create a Postgres database from the Vercel dashboard's Storage tab) and `ADMIN_PASSWORD` as environment variables.
 
 ## Known gaps / non-goals (documented, not silently papered over)
 - `/account` has no real authentication — forms are inert by design, not a bug

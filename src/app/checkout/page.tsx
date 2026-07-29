@@ -28,8 +28,12 @@ export default function CheckoutPage() {
 
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [pinCode, setPinCode] = useState("");
   const [payment, setPayment] = useState<PaymentMethod>("upi");
   const [giftNote, setGiftNote] = useState(false);
+  const [giftNoteText, setGiftNoteText] = useState("");
   const [placed, setPlaced] = useState(false);
   const [coupon, setCoupon] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
@@ -83,7 +87,28 @@ export default function CheckoutPage() {
             const verifyRes = await fetch("/api/razorpay/verify", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(response),
+              body: JSON.stringify({
+                ...response,
+                order: {
+                  fullName,
+                  phone,
+                  address,
+                  city,
+                  pinCode,
+                  items: cart.map((line) => ({
+                    slug: line.slug,
+                    name: line.name,
+                    variant: line.variant,
+                    qty: line.qty,
+                    price: line.price,
+                  })),
+                  subtotal,
+                  shipping,
+                  discount,
+                  total,
+                  giftNote: giftNote && giftNoteText ? giftNoteText : null,
+                },
+              }),
             });
             const verifyData = await verifyRes.json();
             if (verifyRes.ok && verifyData.verified) {
@@ -172,9 +197,27 @@ export default function CheckoutPage() {
               <h2 className="font-display text-lg text-ink-900">Shipping Address</h2>
             </div>
             <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <input required placeholder="Address" className={cn(inputClass, "sm:col-span-2")} />
-              <input required placeholder="City" className={inputClass} />
-              <input required placeholder="PIN code" className={inputClass} />
+              <input
+                required
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                placeholder="Address"
+                className={cn(inputClass, "sm:col-span-2")}
+              />
+              <input
+                required
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                placeholder="City"
+                className={inputClass}
+              />
+              <input
+                required
+                value={pinCode}
+                onChange={(e) => setPinCode(e.target.value)}
+                placeholder="PIN code"
+                className={inputClass}
+              />
             </div>
           </section>
 
@@ -244,6 +287,8 @@ export default function CheckoutPage() {
             </label>
             {giftNote && (
               <textarea
+                value={giftNoteText}
+                onChange={(e) => setGiftNoteText(e.target.value)}
                 placeholder="Write your gift note..."
                 rows={3}
                 className="mt-3 w-full rounded-xl border border-beige-dark bg-paper px-4 py-3 text-sm focus:border-ink-900 focus:outline-none focus:ring-2 focus:ring-gold-400/30"

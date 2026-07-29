@@ -1,10 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createHmac, timingSafeEqual } from "crypto";
+import { insertOrder, OrderItem } from "@/lib/db";
+
+interface OrderDetails {
+  fullName: string;
+  phone: string;
+  address: string;
+  city: string;
+  pinCode: string;
+  items: OrderItem[];
+  subtotal: number;
+  shipping: number;
+  discount: number;
+  total: number;
+  giftNote: string | null;
+}
 
 interface VerifyBody {
   razorpay_order_id: string;
   razorpay_payment_id: string;
   razorpay_signature: string;
+  order: OrderDetails;
 }
 
 export async function POST(req: NextRequest) {
@@ -20,8 +36,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = body;
-  if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
+  const { razorpay_order_id, razorpay_payment_id, razorpay_signature, order } = body;
+  if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature || !order) {
     return NextResponse.json({ error: "Missing payment details." }, { status: 400 });
   }
 
@@ -37,6 +53,28 @@ export async function POST(req: NextRequest) {
 
   if (!isValid) {
     return NextResponse.json({ verified: false, error: "Payment could not be verified." }, { status: 400 });
+  }
+
+  try {
+    await insertOrder({
+      razorpayOrderId: razorpay_order_id,
+      razorpayPaymentId: razorpay_payment_id,
+      fullName: order.fullName,
+      phone: order.phone,
+      address: order.address,
+      city: order.city,
+      pinCode: order.pinCode,
+      items: order.items,
+      subtotal: order.subtotal,
+      shipping: order.shipping,
+      discount: order.discount,
+      total: order.total,
+      giftNote: order.giftNote,
+    });
+  } catch (err) {
+    // Payment is already verified and real money was captured — never fail the
+    // customer-facing response over a storage error. Log for manual follow-up.
+    console.error("Failed to store order after verified payment:", razorpay_payment_id, err);
   }
 
   return NextResponse.json({ verified: true });
