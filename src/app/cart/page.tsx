@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import { useGemista } from "@/lib/store";
 import { products } from "@/lib/data/products";
@@ -41,8 +42,12 @@ export default function CartPage() {
                 const photoKey = product ? categoryGallery[product.category]?.[0] : undefined;
                 return (
                   <li key={`${line.slug}-${line.variant}`} className="flex gap-5 py-6">
-                    <Link href={`/products/${line.slug}`} className="h-28 w-24 shrink-0 overflow-hidden rounded-md">
-                      {photoKey && <Photo photo={photos[photoKey]} sizes="96px" />}
+                    <Link href={`/products/${line.slug}`} className="relative h-28 w-24 shrink-0 overflow-hidden rounded-md">
+                      {product?.photo ? (
+                        <Image src={product.photo} alt={product.name} fill sizes="96px" className="object-cover" />
+                      ) : (
+                        photoKey && <Photo photo={photos[photoKey]} sizes="96px" />
+                      )}
                     </Link>
                     <div className="flex flex-1 flex-col">
                       <div className="flex items-start justify-between gap-2">

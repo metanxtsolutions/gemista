@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Heart } from "lucide-react";
 import { Product } from "@/lib/data/types";
 import { ProductArt } from "@/components/media/product-art";
@@ -27,13 +28,25 @@ export function ProductCard({
       <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-ivory">
         <Link href={`/products/${product.slug}`} className="block h-full w-full">
           <div className="relative h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]">
-            <ProductArt shape={product.art.shape} tone={product.art.tone} className="absolute inset-0" />
-            {secondaryArt && (
-              <ProductArt
-                shape={product.art.shape}
-                tone={secondaryArt.tone}
-                className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+            {product.photo ? (
+              <Image
+                src={product.photo}
+                alt={product.name}
+                fill
+                sizes="(min-width: 1024px) 25vw, 50vw"
+                className="object-cover"
               />
+            ) : (
+              <>
+                <ProductArt shape={product.art.shape} tone={product.art.tone} className="absolute inset-0" />
+                {secondaryArt && (
+                  <ProductArt
+                    shape={product.art.shape}
+                    tone={secondaryArt.tone}
+                    className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  />
+                )}
+              </>
             )}
           </div>
         </Link>

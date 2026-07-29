@@ -70,6 +70,8 @@ export interface Product {
   materials: string[];
   occasions: string[];
   art: ProductArt;
+  /** Local product photo path (e.g. "/products/foo.webp"). Preferred over `art` when present. */
+  photo?: string;
   variants: { label: string; tone: Tone }[];
   rating: number;
   reviewCount: number;

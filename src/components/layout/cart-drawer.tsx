@@ -2,6 +2,7 @@
 
 import { Minus, Plus, ShoppingBag, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useGemista } from "@/lib/store";
 import { formatPrice, cn } from "@/lib/utils";
 import { ProductArt } from "@/components/media/product-art";
@@ -95,10 +96,12 @@ export function CartDrawer() {
                     <Link
                       href={`/products/${line.slug}`}
                       onClick={closeCart}
-                      className="h-24 w-20 shrink-0 overflow-hidden rounded-md"
+                      className="relative h-24 w-20 shrink-0 overflow-hidden rounded-md"
                     >
-                      {product && (
-                        <ProductArt shape={product.art.shape} tone={product.art.tone} />
+                      {product?.photo ? (
+                        <Image src={product.photo} alt={product.name} fill sizes="80px" className="object-cover" />
+                      ) : (
+                        product && <ProductArt shape={product.art.shape} tone={product.art.tone} />
                       )}
                     </Link>
                     <div className="flex flex-1 flex-col">

@@ -47,7 +47,13 @@ export default async function ProductPage({
   if (!product) notFound();
 
   const category = categories.find((c) => c.slug === product.category);
-  const gallery = (categoryGallery[product.category] ?? ["earringsModel"]).map((k) => photos[k]);
+  const gallery = product.photo
+    ? [{ id: product.slug, url: product.photo, alt: product.name }]
+    : (categoryGallery[product.category] ?? ["earringsModel"]).map((k) => ({
+        id: photos[k].id,
+        url: photos[k].url,
+        alt: photos[k].alt,
+      }));
 
   const completeTheLook = products
     .filter(
@@ -124,7 +130,7 @@ export default async function ProductPage({
       />
 
       <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
-        <ProductGallery images={gallery} name={product.name} />
+        <ProductGallery images={gallery} />
         <div>
           <ProductInfo product={product} />
           <ProductAccordion product={product} />
