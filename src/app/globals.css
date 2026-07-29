@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* -----------------------------------------------------------------------
+   GEMISTA DESIGN SYSTEM
+   Affordable-luxury jewellery brand — warm neutrals, ink, gold, rose gold.
+   ----------------------------------------------------------------------- */
+
+@theme {
+  /* ---- Typography ---- */
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* ---- Warm neutrals (primary) ---- */
+  --color-paper: #ffffff;
+  --color-cream: #faf6ee;
+  --color-ivory: #f4ecdd;
+  --color-beige: #eadfc9;
+  --color-beige-dark: #ddccac;
+
+  /* ---- Ink / charcoal (secondary) ---- */
+  --color-ink-950: #100d0a;
+  --color-ink-900: #17130f;
+  --color-ink-800: #241f19;
+  --color-ink-700: #362f26;
+  --color-ink-600: #4d4436;
+  --color-ink-500: #6b6151;
+  --color-ink-400: #928572;
+  --color-ink-300: #b8ac97;
+  --color-ink-200: #ddd3bf;
+
+  /* ---- Gold (secondary accent) ---- */
+  --color-gold-300: #ead9ae;
+  --color-gold-400: #ddc182;
+  --color-gold-500: #c8a55a;
+  --color-gold-600: #ab8847;
+  --color-gold-700: #8a6c39;
+
+  /* ---- Rose gold (accent) ---- */
+  --color-rose-200: #f4e2da;
+  --color-rose-300: #ecccc0;
+  --color-rose-400: #ddab99;
+  --color-rose-500: #c98d78;
+
+  /* ---- Semantic ---- */
+  --color-success: #4d7c5f;
+  --color-error: #a8433a;
+
+  /* ---- Radii ---- */
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+  --radius-full: 999px;
+
+  /* ---- Shadows ---- */
+  --shadow-soft: 0 2px 12px 0 rgb(23 19 15 / 0.06);
+  --shadow-card: 0 8px 30px -8px rgb(23 19 15 / 0.12);
+  --shadow-lifted: 0 24px 60px -20px rgb(23 19 15 / 0.22);
+
+  /* ---- Easing ---- */
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ---- Container ---- */
+  --container-8xl: 96rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    border-color: var(--color-beige);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-gold-400);
+    color: var(--color-ink-950);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-beige-dark);
+    border-radius: 999px;
+    border: 2px solid var(--color-paper);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-gem {
+    width: 100%;
+    max-width: var(--container-8xl);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-gem {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-gem {
+      padding-inline: 3rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.4s var(--ease-luxury);
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
