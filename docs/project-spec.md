@@ -17,7 +17,7 @@ Gemista sources and dropships from **Nihaojewelry**, a wholesale jewellery suppl
 - `@vercel/analytics` wired into `src/app/layout.tsx`
 - Deployed on Vercel, custom domain `gemista.store` → `www.gemista.store`
 
-No backend, no database, no real auth. Everything is static/build-time data in `src/lib/data/*.ts`.
+No database, no real auth. Product/category/review data is static/build-time in `src/lib/data/*.ts`. The one exception is checkout payments: two Next.js Route Handlers (`src/app/api/razorpay/*`) run server-side on Vercel to create and verify Razorpay orders — see "Payments" below.
 
 ## Data model
 - `Product` (`src/lib/data/types.ts`): slug, name, category, collections[], price, compareAtPrice?, materials[], occasions[], art (illustrated fallback shape/tone), `photo?` (real product photo path, preferred over `art` when present), variants[], rating, reviewCount, badges (isNew/isBestSeller/lowStock), description, highlights[]
@@ -45,10 +45,17 @@ Full IA in `SITEMAP.md`. Key routes:
 - Free shipping progress bar at ₹999 threshold (cart drawer + cart page)
 - Sticky add-to-cart bar on PDP scroll
 
+## Payments
+Checkout (`src/app/checkout/page.tsx`) collects full name, phone, and shipping address (no email field), and a payment method choice of UPI, Credit Card, or Debit Card. On submit:
+1. `POST /api/razorpay/create-order` recomputes the cart total server-side from real `products.ts` prices (never trusts a client-sent amount), then creates a Razorpay order.
+2. The client loads Razorpay's `checkout.js` and opens the widget, restricted to UPI or card entry based on the selected method, prefilled with name/phone.
+3. On success, `POST /api/razorpay/verify` checks the HMAC-SHA256 payment signature server-side before the cart is cleared and the order is marked placed.
+
+Requires `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` as environment variables (see `.env.local.example`) — get them from the Razorpay dashboard. Without them, `create-order` returns a clear "not configured" error instead of crashing, and the checkout UI surfaces it inline. There's no order-history persistence (no database), so a successful payment shows a confirmation screen but isn't stored anywhere.
+
 ## Known gaps / non-goals (documented, not silently papered over)
 - `/account` has no real authentication — forms are inert by design, not a bug
 - `src/lib/data/misc.ts` → `press` array is explicitly placeholder ("Replace with real press coverage once secured") — never present as genuine
-- No payment processing — checkout form collects shipping info but does not integrate a real payment gateway
 - Brand voice and keyword targets are documented separately (`docs/brand-voice.md`, `docs/keywords.md`) and are a first draft, not validated against real SEO tooling/search-volume data
 
 ## Standing conventions from past work

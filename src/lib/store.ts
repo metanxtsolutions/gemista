@@ -22,6 +22,7 @@ interface GemistaState {
   addToCart: (line: Omit<CartLine, "qty">, qty?: number) => void;
   removeFromCart: (slug: string, variant: string) => void;
   setQty: (slug: string, variant: string, qty: number) => void;
+  clearCart: () => void;
   toggleWishlist: (slug: string) => void;
   isWishlisted: (slug: string) => boolean;
   pushRecentlyViewed: (slug: string) => void;
@@ -95,6 +96,8 @@ export const useGemista = create<GemistaState>()(
             ...state.recentlyViewed.filter((s) => s !== slug),
           ].slice(0, 8),
         })),
+
+      clearCart: () => set({ cart: [] }),
 
       openCart: () => set({ isCartOpen: true }),
       closeCart: () => set({ isCartOpen: false }),
