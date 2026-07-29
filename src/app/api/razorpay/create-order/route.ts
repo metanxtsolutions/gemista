@@ -67,16 +67,7 @@ export async function POST(req: NextRequest) {
       keyId,
     });
   } catch (err) {
-    const detail =
-      typeof err === "object" && err !== null && "error" in err
-        ? (err as { error?: { description?: string; code?: string } }).error
-        : undefined;
-    return NextResponse.json(
-      {
-        error: "Could not start payment. Please try again.",
-        debug: detail?.description ?? detail?.code ?? String(err),
-      },
-      { status: 502 },
-    );
+    console.error("Razorpay order creation failed:", err);
+    return NextResponse.json({ error: "Could not start payment. Please try again." }, { status: 502 });
   }
 }
