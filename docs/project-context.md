@@ -6,7 +6,7 @@ Next.js 16.2 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v
 Product/category content is static/build-time data. Two exceptions run server-side: Razorpay payment routes (`src/app/api/razorpay/*`, now on **live** keys — real money) and order storage in Postgres (`src/lib/db.ts`, `src/app/internal/orders`) behind a single-password admin gate. See "Payments" and "Order storage & admin" in `docs/project-spec.md`. The `/account` page is still a UI shell only — Sign In / Create Account forms exist but are not wired to any auth system.
 
 ## Single Source of Truth
-- Product data lives in: [`src/lib/data/products.ts`](../src/lib/data/products.ts) — 17 products, sourced from Nihaojewelry (wholesale/dropship supplier). Photos are the supplier's own product photography for the exact physical items Gemista sources and resells, stored in [`public/products/`](../public/products/).
+- Product data lives in: [`src/lib/data/products.ts`](../src/lib/data/products.ts) — 22 products, sourced from Nihaojewelry (wholesale/dropship supplier). Photos are the supplier's own product photography for the exact physical items Gemista sources and resells, stored in [`public/products/`](../public/products/).
 - Category data: [`src/lib/data/categories.ts`](../src/lib/data/categories.ts) (5 categories: earrings, necklaces, bracelets, rings, jewellery-sets)
 - Reviews: [`src/lib/data/reviews.ts`](../src/lib/data/reviews.ts) — `productSlug` must reference a real slug in `products.ts`
 - Site map / IA: [`SITEMAP.md`](../SITEMAP.md)

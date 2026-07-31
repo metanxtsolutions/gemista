@@ -44,9 +44,15 @@ export function ProductInfo({ product }: { product: Product }) {
         {product.name}
       </h1>
 
-      <a href="#reviews" className="mt-2 inline-block">
-        <Rating value={product.rating} count={product.reviewCount} />
-      </a>
+      {product.rating !== undefined ? (
+        <a href="#reviews" className="mt-2 inline-block">
+          <Rating value={product.rating} count={product.reviewCount} />
+        </a>
+      ) : (
+        <span className="mt-2 inline-block text-xs font-semibold uppercase tracking-wide text-gold-600">
+          New Arrival
+        </span>
+      )}
 
       <div className="mt-4 flex items-baseline gap-3">
         <span className="text-2xl font-semibold text-ink-900">{formatPrice(product.price)}</span>

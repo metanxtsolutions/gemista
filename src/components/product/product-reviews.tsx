@@ -13,6 +13,20 @@ const breakdown = [
 ];
 
 export function ProductReviews({ product }: { product: Product }) {
+  if (product.rating === undefined) {
+    return (
+      <section id="reviews" className="scroll-mt-24 border-t border-beige py-14">
+        <h2 className="font-display text-2xl text-ink-900">Reviews</h2>
+        <p className="mt-2 text-sm text-ink-500">
+          This is a new arrival, so there are no reviews yet. Be the first to share yours.
+        </p>
+        <Button variant="secondary" size="sm" className="mt-6">
+          Write a Review
+        </Button>
+      </section>
+    );
+  }
+
   const productReviews = allReviews.filter((r) => r.productSlug === product.slug);
   const list = productReviews.length ? productReviews : allReviews.slice(0, 3);
 

@@ -60,7 +60,7 @@ export function CollectionGrid({ products }: { products: Product[] }) {
         list = [...list].sort((a, b) => Number(b.isNew) - Number(a.isNew));
         break;
       case "rating":
-        list = [...list].sort((a, b) => b.rating - a.rating);
+        list = [...list].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
         break;
     }
     return list;

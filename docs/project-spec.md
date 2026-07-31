@@ -6,7 +6,9 @@ A premium jewellery ecommerce storefront for **Gemista**, positioned as "Afforda
 Tagline: "Jewellery That Celebrates You."
 
 ## Business model
-Gemista sources and dropships from **Nihaojewelry**, a wholesale jewellery supplier. The 17 live products are real physical items Gemista resells; their photos are Nihaojewelry's own product photography, used under the standard supplier-to-reseller arrangement for the exact items being sold. This is documented in the header comment of `src/lib/data/products.ts` — do not treat these as stock/placeholder images.
+Gemista sources and dropships from **Nihaojewelry**, a wholesale jewellery supplier. The 22 live products are real physical items Gemista resells; their photos are Nihaojewelry's own product photography, used under the standard supplier-to-reseller arrangement for the exact items being sold. This is documented in the header comment of `src/lib/data/products.ts` — do not treat these as stock/placeholder images.
+
+New products added after the initial 17 have no real reviews yet, so `rating`/`reviewCount` are omitted on the `Product` type rather than fabricated — the PDP and product cards show "New Arrival" instead of stars in that case (`src/components/product/product-card.tsx`, `product-info.tsx`, `product-reviews.tsx`), and the schema.org `aggregateRating` block is omitted from that product's JSON-LD entirely. The original 17 still carry illustrative ratings; extending that pattern to new products was deliberately stopped once it was flagged as a fake-review compliance risk (India CCPA) — don't add fabricated ratings to new listings going forward.
 
 ## Tech stack
 - Next.js 16.2, App Router, Turbopack, React 19, TypeScript

@@ -94,7 +94,11 @@ export function ProductCard({
 
       <Link href={`/products/${product.slug}`} className="mt-3.5 flex flex-1 flex-col">
         <h3 className="text-sm font-medium text-ink-900">{product.name}</h3>
-        <Rating value={product.rating} count={product.reviewCount} className="mt-1.5" />
+        {product.rating !== undefined ? (
+          <Rating value={product.rating} count={product.reviewCount} className="mt-1.5" />
+        ) : (
+          <span className="mt-1.5 text-xs font-medium uppercase tracking-wide text-gold-600">New Arrival</span>
+        )}
         <div className="mt-1.5 flex items-baseline gap-2">
           <span className="text-sm font-semibold text-ink-900">
             {formatPrice(product.price)}

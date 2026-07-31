@@ -73,8 +73,9 @@ export interface Product {
   /** Local product photo path (e.g. "/products/foo.webp"). Preferred over `art` when present. */
   photo?: string;
   variants: { label: string; tone: Tone }[];
-  rating: number;
-  reviewCount: number;
+  /** Omit for products with no real reviews yet — PDP/cards show "New Arrival" instead of fabricated stars. */
+  rating?: number;
+  reviewCount?: number;
   isNew?: boolean;
   isBestSeller?: boolean;
   lowStock?: number;
