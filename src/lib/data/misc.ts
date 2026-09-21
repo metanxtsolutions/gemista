@@ -16,6 +16,8 @@ export const occasions = [
   { name: "Birthday", slug: "birthday" },
   { name: "Anniversary", slug: "anniversary" },
   { name: "Festive", slug: "festive" },
+  { name: "Diwali", slug: "diwali" },
+  { name: "Pooja", slug: "pooja" },
   { name: "Self Gift", slug: "self-gift" },
 ];
 

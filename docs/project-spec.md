@@ -75,6 +75,7 @@ Requires `SESSION_SECRET` (any random string, e.g. `openssl rand -hex 32`), `MSG
 ## Known gaps / non-goals (documented, not silently papered over)
 - `src/lib/data/misc.ts` → `press` array is explicitly placeholder ("Replace with real press coverage once secured") — never present as genuine
 - Brand voice and keyword targets are documented separately (`docs/brand-voice.md`, `docs/keywords.md`) and are a first draft, not validated against real SEO tooling/search-volume data
+- The Diwali/Pooja-tagged products (`occasions: ["Diwali", ...]` / `["Pooja", ...]`) are festive-glam fashion jewellery, not authentic Indian traditional jewellery — Nihaojewelry (the sourcing supplier) doesn't stock genuine kundan/temple/meenakari pieces; searching those terms on their site just falls back to unrelated generic results. Copy for these products describes visible form only (chandbali silhouette, tassels, coin motifs, forehead-chain/tikka style) and never claims authentic craftsmanship techniques it can't verify from a photo. If genuinely authentic ethnic jewellery is wanted later, it needs a different, India-focused supplier — not sourced yet.
 
 ## Standing conventions from past work
 - No em dashes ("—") in any site copy, ever — all 73 prior instances were manually rewritten; this is a hard rule, not a preference
